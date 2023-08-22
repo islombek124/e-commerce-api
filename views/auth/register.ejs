@@ -1,0 +1,25 @@
+<%- include('../shared/header.ejs') %>
+
+<section>
+  <form action="/register" method="post" class="w-100">
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+    <div class="form-floating">
+      <input class="form-control" id="floatingFirstName" type="text" required name="firstName" placeholder="Islom">
+      <label for="floatingFirstName">First Name</label>
+    </div>
+    <div class="form-floating">
+      <input class="form-control" id="floatingLastName" type="text" required name="lastName" placeholder="Murodov">
+      <label for="floatingLastName">Last Name</label>
+    </div>
+    <div class="form-floating">
+      <input class="form-control" id="floatingEmail" type="email" required name="email" placeholder="name@example.com">
+      <label for="floatingEmail">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input class="form-control" id="floatingPassword" type="password" required name="password" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2 my-3" type="submit">Register</button>
+  </form>
+  <p class="text-center">Already have an account ? <a href="/login">Login</a></p>
+</section>

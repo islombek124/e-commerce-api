@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>eCommerce API</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a class="navbar-brand d-inline-flex link-body-emphasis text-decoration-none" href="/">eCommerce Api UI</a>
+      </div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/docs">Docs</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/islombek124/e-commerce-api"
+            target="_blank">GitHub</a>
+        </li>
+        <%  if(locals.isAdmin) { %>
+          <li class="nav-item"><a class="nav-link" href="/admin">Admin Panel</a></li>
+        <% } %>
+      </ul>
+      <div class="col-md-3 text-end">
+        <% if(locals.token) { %>
+          <a class="btn btn-danger" href="/logOut">Log-Out</a>
+        <% } else { %>
+          <a class="btn btn-outline-primary me-2" href="/login">Login</a>
+          <a class="btn btn-primary" href="/register">Sign-up</a>
+        <% } %>
+        
+      </div>
+    </nav>

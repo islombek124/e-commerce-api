@@ -1,0 +1,78 @@
+<%- include('../shared/header.ejs') %>
+
+<section class="row mb-5">
+  <div class="col-md-6">
+    <h1>eCommerce Api</h1>
+    <p>eCommerce rest api for your e-commerce or shopping website prototype</p>
+    <div>
+      <a class="btn btn-outline-primary" href="https://github.com/islombek124/e-commerce-api">
+        View on GitHub
+      </a>
+      <a class="btn btn-primary" href="/docs">
+        Read docs
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="row mb-5">
+  <div class="col-md-5">
+    <h2>Resources</h2>
+  <p>There are 2 main resources need in shopping prototypes</p>
+  <ul class="list-group">
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <a href="/products">Products</a>
+      <span><%= productsCount %> products</span>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <a href="/products">Users</a>
+      <span><%= usersCount %> products</span>
+    </li>
+  </ul>
+  <a class="btn btn-primary mt-4" href="/docs">View Details on Docs</a>
+  </div>
+</section>
+
+<section class="row mb-5">
+  <div class="col-md-5">
+    <h2>Routes</h2>
+  <p>All HTTP methods are supported</p>
+  <ul class="list-group">
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>GET</span>
+      <a href="/products">/products</a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>GET</span>
+      <a href="/products/categories">/products/categories</a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>GET</span>
+      <a href="/products/category/electronics">/products/category/electronics</a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>GET</span>
+      <a href="/products?limit=5">/products?limit=5</a>
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>POST</span>
+      /products
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>PUT</span>
+      /products/1
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>PATCH</span>
+      /products
+    </li>
+    <li class="list-group-item d-flex align-items-center justify-content-between">
+      <span>DELETE</span>
+      /products/1
+    </li>
+  </ul>
+  <a class="btn btn-primary mt-4" href="/docs">View Details on Docs</a>
+  </div>
+</section>
+
+<%- include('../shared/footer.ejs') %>

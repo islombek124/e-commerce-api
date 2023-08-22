@@ -1,0 +1,147 @@
+<%- include('../shared/header.ejs') %>
+
+  <section class="row mb-4 overflow-y-scroll">
+    <h1>Users</h1>
+    <table class="table table-striped">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Role</th>
+          <th scope="col">Control</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <% allUsers.forEach(user=> { %>
+          <tr>
+            <th scope="row">
+              <%= user.id %>
+            </th>
+            <th>
+              <%= user.firstName %>
+            </th>
+            <th>
+              <%= user.lastName %>
+            </th>
+            <th>
+              <%= user.email %>
+            </th>
+            <th>
+              <%= user.password %>
+            </th>
+            <th>
+              <form action="/admin/updateUser/<%= user.id %>" method="post" id="roleForm">
+                <select id="roledown" name="role" class="form-select">
+                  <option value="<%= user.role %>" selected disabled>
+                    <%= user.role %>
+                  </option>
+                  <% if(user.role==='user' ) { %>
+                    <option value="admin">admin</option>
+                    <% } else { %>
+                      <option value="user">user</option>
+                      <% } %>
+                </select>
+              </form>
+            </th>
+            <th>
+              <form action="/admin/deleteUser/<%= user.id %>" method="post">
+                <button type="submit" class="btn btn-raised btn-danger">Del</button>
+              </form>
+            </th>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const dropdown = document.getElementById("roledown");
+
+    dropdown.addEventListener("change", function () {
+
+      document.getElementById("roleForm").submit();
+    });
+  </script>
+
+  <hr>
+
+  <section class="row mb-5 overflow-y-scroll">
+    <h1>Products</h1>
+    <table class="table table-striped">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Category</th>
+          <th scope="col">Control</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <% allProducts.forEach(product=> { %>
+          <tr>
+            <th scope="row">
+              <%= product.id %>
+            </th>
+            <th>
+              <%= product.title %>
+            </th>
+            <th>
+              <%= product.price %>
+            </th>
+            <th>
+              <%= product.description %>
+            </th>
+            <th>
+              <%= product.image %>
+            </th>
+            <th>
+              <%= product.category %>
+            </th>
+            <th>
+              <form action="/admin/deleteProduct/<%= product.id %>" method="post">
+                <button type="submit" class="btn btn-raised btn-danger">Del</button>
+              </form>
+            </th>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section class="row mb-5">
+    <h1>
+      Add a new product
+    </h1>
+    <form action="/admin/products" method="post" class="w-100">
+      <div class="form-floating mb-4">
+        <input type="text" required name="title" id="floatingTitle" class="form-control">
+        <label for="floatingTitle">Title*</label>
+      </div>
+      <div class="form-floating mb-4">
+        <input type="number" required name="price" id="floatingPrice" class="form-control">
+        <label for="floatingPrice">Price*</label>
+      </div>
+      <div class="form-floating mb-4">
+        <textarea required name="description" id="floatingDescription" class="form-control"></textarea>
+        <label for="floatingDescription">Description*</label>
+      </div>
+      <div class="mb-4">
+        <input type="file" required name="image" id="floatingImage" class="form-control" accept=".jpg,.jpeg,.png,.svg">
+      </div>
+      <div class="form-floating mb-4">
+        <input type="text" required name="category" id="floatingCategory" class="form-control">
+        <label for="floatingCategory">Category*</label>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 py-2 my-3">Save</button>
+    </form>
+  </section>
+
+  <%- include('../shared/footer.ejs') %>
