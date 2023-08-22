@@ -4,8 +4,7 @@
   "description": "eCommer-api is a free online REST API that provides you fake e-commerce JSON data",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
