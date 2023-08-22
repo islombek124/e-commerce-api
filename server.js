@@ -42,19 +42,21 @@ app.use('/products', productRoute);
 app.use('/admin', adminRoute);
 
 // mongoose
-mongoose.set('strictQuery', true)
-mongoose
-	.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-	.then(() => {
-		app.listen(port, () => {
-			console.log('Connected successfully ✅');
-		});
-	})
-	.catch((err) => {
+mongoose.set('strictQuery', false)
+const connectDB = async () => {
+	try {
+		const conn = await mongoose.connect(process.env.DATABASE_URL)
+		console.log(`MongoDB Connected: ${conn.connection.host}`);
+	} catch (err) {
 		console.log(err);
-	});
+		process.exit(1)
+	}
+}
+
+connectDB().then(() => {
+	app.listen(port, () => {
+		console.log(`Listening on port: ${port}`);
+	})
+})
 
 module.exports = app;
